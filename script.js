@@ -30,9 +30,12 @@ function operate (numb1, op, numb2){
     }
 };
 
-let numb1 = 152;
-let numb2 = 30;
-let op = "+";
+let numb1 = 0;
+let numb2 = 0;
+let op = "";
 
+const display = document.querySelector(".display");
+function setDisplay (content){
+    display.textContent = content;
+};
 
-console.log(operate(numb1, op, numb2));

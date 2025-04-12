@@ -23,7 +23,7 @@ function operate (numb1, op, numb2){
             return add(numb1, numb2);
         case "-":
             return substract(numb1, numb2);
-        case "*":
+        case "X":
             return multiply(numb1, numb2);
         case "/":
             return divide(numb1, numb2);

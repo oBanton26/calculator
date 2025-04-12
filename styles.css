@@ -1,0 +1,52 @@
+body{
+    box-sizing: border-box;
+    width: 800px;
+    margin: 0 auto;
+    background-color: aliceblue;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    border-radius: 10px;
+}
+.calculatorContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.operatorContainer button{
+    display: block;
+    width: 120px;
+    height: 80px;
+    margin: 5px;
+    font-size: 30px;
+}
+
+.digitContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 700px;
+    padding: 0px;
+}
+
+.digitContainer button {
+    width: 210px;
+    margin: 5px;
+    font-size: 50px;
+}
+
+.display {
+    display: flex;
+    align-items: center;
+    border: 2px solid;
+    max-width: 770px;
+    height: 60px;
+    margin: 10px auto;
+    font-size: 40px;
+    padding-left: 20px;
+    background-color: grey;
+}

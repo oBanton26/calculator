@@ -17,10 +17,22 @@ function divide(a, b){
     return Math.round(a/b*1000000)/1000000;
 };
 
+function operate (numb1, op, numb2){
+    switch (op) {
+        case "+":
+            return add(numb1, numb2);
+        case "-":
+            return substract(numb1, numb2);
+        case "*":
+            return multiply(numb1, numb2);
+        case "/":
+            return divide(numb1, numb2);
+    }
+};
+
 let numb1 = 152;
 let numb2 = 30;
+let op = "+";
 
-console.log("Addition: "+ add(numb1, numb2));
-console.log("Substraction: "+ substract(numb1, numb2));
-console.log("Multiplication: "+ multiply(numb1, numb2));
-console.log("Division: "+ divide(numb1, numb2));
+
+console.log(operate(numb1, op, numb2));

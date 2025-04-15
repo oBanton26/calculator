@@ -87,7 +87,7 @@ for (let operator of arrOpButtons){
             numbDisplayed = operate(numb1, op, numb2);
             display.textContent = `${numbDisplayed}`;
             numb1 = numbDisplayed;
-            clearDisplay();
+            resultIsDisplaying = true;
         };
         op = this.textContent;
     });

@@ -39,6 +39,7 @@ let numb1 = 0;
 let numb2 = 0;
 let op = "";
 let numbDisplayed = 0;
+let resultIsDisplaying = false;
 
 
 const display = document.querySelector(".display");
@@ -55,6 +56,10 @@ const arrDigitRef = Array.from(digitButtons);
 arrDigitRef.pop();
 for (let node of arrDigitRef){
     node.addEventListener("click", function(){
+        if (resultIsDisplaying){
+            clearDisplay();
+            resultIsDisplaying = false;
+        }
         addDisplay(this.textContent);
     });
 };
@@ -96,4 +101,5 @@ equalButton.addEventListener("click", function(){
     numbDisplayed = operate(numb1, op, numb2);
     display.textContent = `${numbDisplayed}`;
     numb1 = 0;
+    resultIsDisplaying = true;
 })

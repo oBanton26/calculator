@@ -35,11 +35,13 @@ function operate (numb1, op, numb2){
 let numb1 = 0;
 let numb2 = 0;
 let op = "";
+let numbDisplayed = 0;
 
 const display = document.querySelector(".display");
-function setDisplay (content){
+function addDisplay (content){
     let before = display.textContent;
     display.textContent = before + content;
+    numbDisplayed = Number(display.textContent);
 };
 
 
@@ -50,14 +52,31 @@ arrDigitRef.pop();
 arrDigitRef.splice(-2,1);
 for (let node of arrDigitRef){
     node.addEventListener("click", function(){
-        setDisplay(this.textContent);
+        addDisplay(this.textContent);
     });
 };
 
 
-//Clear button
+// Clear button
 const clearButton = document.querySelector(".clearButton");
 function clearDisplay() {
     display.textContent = "";
+    numbDisplayed = 0;
 };
 clearButton.addEventListener("click", clearDisplay);
+
+
+// Operator buttons clicked
+const arrOpButtons = Array.from(document.querySelectorAll(".operatorContainer button"));
+arrOpButtons.pop();
+for (let operator of arrOpButtons){
+    operator.addEventListener("click", function(){
+        if (numb1 === 0){
+            numb1 = numbDisplayed;
+        } else {
+            numb2 = numbDisplayed;
+        };
+        op = this.textContent;
+        clearDisplay();
+    });
+}

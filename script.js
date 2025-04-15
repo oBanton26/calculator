@@ -30,12 +30,25 @@ function operate (numb1, op, numb2){
     }
 };
 
+
+
 let numb1 = 0;
 let numb2 = 0;
 let op = "";
 
 const display = document.querySelector(".display");
 function setDisplay (content){
-    display.textContent = content;
+    let before = display.textContent;
+    display.textContent = before + content;
 };
 
+// Setting display to clicked digit
+const digitButtons = document.querySelectorAll(".digitContainer button");
+const arrDigitRef = Array.from(digitButtons);
+arrDigitRef.pop();
+arrDigitRef.splice(-2,1);
+for (let node of arrDigitRef){
+    node.addEventListener("click", function(){
+        setDisplay(this.textContent);
+    });
+};

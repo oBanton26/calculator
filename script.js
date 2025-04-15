@@ -32,10 +32,14 @@ function operate (numb1, op, numb2){
 
 
 
+
+
+
 let numb1 = 0;
 let numb2 = 0;
 let op = "";
 let numbDisplayed = 0;
+
 
 const display = document.querySelector(".display");
 function addDisplay (content){
@@ -49,7 +53,6 @@ function addDisplay (content){
 const digitButtons = document.querySelectorAll(".digitContainer button");
 const arrDigitRef = Array.from(digitButtons);
 arrDigitRef.pop();
-arrDigitRef.splice(-2,1);
 for (let node of arrDigitRef){
     node.addEventListener("click", function(){
         addDisplay(this.textContent);
@@ -73,10 +76,19 @@ for (let operator of arrOpButtons){
     operator.addEventListener("click", function(){
         if (numb1 === 0){
             numb1 = numbDisplayed;
-        } else {
-            numb2 = numbDisplayed;
         };
         op = this.textContent;
         clearDisplay();
     });
-}
+};
+
+
+// Equal button clicked
+const equalButton = document.querySelector(".equalButton");
+equalButton.addEventListener("click", function(){
+    numb2 = numbDisplayed;
+    const result = operate(numb1, op, numb2);
+    display.textContent = `${result}`;
+    numbDisplayed = result;
+    numb1 = 0;
+})

@@ -42,6 +42,7 @@ function setDisplay (content){
     display.textContent = before + content;
 };
 
+
 // Setting display to clicked digit
 const digitButtons = document.querySelectorAll(".digitContainer button");
 const arrDigitRef = Array.from(digitButtons);
@@ -52,3 +53,11 @@ for (let node of arrDigitRef){
         setDisplay(this.textContent);
     });
 };
+
+
+//Clear button
+const clearButton = document.querySelector(".clearButton");
+function clearDisplay() {
+    display.textContent = "";
+};
+clearButton.addEventListener("click", clearDisplay);

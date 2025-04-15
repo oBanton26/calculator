@@ -76,9 +76,15 @@ for (let operator of arrOpButtons){
     operator.addEventListener("click", function(){
         if (numb1 === 0){
             numb1 = numbDisplayed;
+            clearDisplay();
+        } else {
+            numb2 = numbDisplayed;
+            numbDisplayed = operate(numb1, op, numb2);
+            display.textContent = `${numbDisplayed}`;
+            numb1 = numbDisplayed;
+            clearDisplay();
         };
         op = this.textContent;
-        clearDisplay();
     });
 };
 
@@ -87,8 +93,7 @@ for (let operator of arrOpButtons){
 const equalButton = document.querySelector(".equalButton");
 equalButton.addEventListener("click", function(){
     numb2 = numbDisplayed;
-    const result = operate(numb1, op, numb2);
-    display.textContent = `${result}`;
-    numbDisplayed = result;
+    numbDisplayed = operate(numb1, op, numb2);
+    display.textContent = `${numbDisplayed}`;
     numb1 = 0;
 })
